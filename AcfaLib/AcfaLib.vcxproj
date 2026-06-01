@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Network\SysNetHook.cpp" />
     <ClCompile Include="src\IO\Text\Format.cpp" />
     <ClCompile Include="src\Kernel\Memory.cpp" />
     <ClCompile Include="src\Runtime\Debug.cpp" />
@@ -23,6 +24,9 @@
     <ClInclude Include="include\IO\IO.h" />
     <ClInclude Include="include\IO\Text\Text.h" />
     <ClInclude Include="include\Kernel\Kernel.h" />
+    <ClInclude Include="include\Network\Imports.h" />
+    <ClInclude Include="include\Network\Network.h" />
+    <ClInclude Include="include\Network\SysNetHook.h" />
     <ClInclude Include="include\Runtime\Runtime.h" />
     <ClInclude Include="include\Runtime\Debug.h" />
     <ClInclude Include="include\IO\Text\Format.h" />
@@ -88,7 +92,7 @@
       <AdditionalDependencies>$(SN_PS3_PATH)\ppu\lib\sn\libsn.a;$(SCE_PS3_ROOT)\target\ppu\lib\libm.a;$(SCE_PS3_ROOT)\target\ppu\lib\libio_stub.a;$(SCE_PS3_ROOT)\target\ppu\lib\liblv2_stub.a;$(SCE_PS3_ROOT)\target\ppu\lib\libc_stub.a</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-        <Command>
+      <Command>
           $(SCE_PS3_ROOT)/host-win32/bin/make_fself "$(TargetPath)" "$(TargetDir)$(TargetName).sprx"
           if not "$(RPCS3_ROOT)" == "" (xcopy /y "$(TargetDir)$(TargetName).sprx" "$(RPCS3_ROOT)/dev_hdd0/tmp/$(TargetName).sprx")
         </Command>
@@ -100,7 +104,7 @@
       <OptimizationLevel>Level2</OptimizationLevel>
     </ClCompile>
     <PostBuildEvent>
-        <Command>
+      <Command>
             $(SCE_PS3_ROOT)/host-win32/bin/make_fself "$(TargetPath)" "$(TargetDir)$(TargetName).sprx"
             if not "$(RPCS3_ROOT)" == "" (xcopy /y "$(TargetDir)$(TargetName).sprx" "$(RPCS3_ROOT)/dev_hdd0/tmp/$(TargetName).sprx")
         </Command>

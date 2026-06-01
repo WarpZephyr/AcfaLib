@@ -15,6 +15,12 @@ int start()
         return 1;
     }
 
+    if (AcfaLib::Network::SysNetHook::Start() != true)
+    {
+        _sys_printf("[AcfaLib] Failed to initialize AcfaLib::SysNetHook!\n");
+        return 1;
+    }
+
     _sys_printf("[AcfaLib] Plugin initialized.\n");
     return 0;
 }
